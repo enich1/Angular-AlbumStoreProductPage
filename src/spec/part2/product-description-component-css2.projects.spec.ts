@@ -1,4 +1,4 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 
 const CSSOM = require('cssom');
 const _ = require('lodash');
@@ -14,7 +14,7 @@ try {
 
 describe('ProductDescriptionComponent', () => {
 
-  it(`should have CSS that contains an img selector @product-description-component-css2`, async(() => {
+  it(`should have CSS that contains an img selector @product-description-component-css2`, waitForAsync(() => {
     since('The ProductDescriptionComponent hasn\'t been created yet.').expect(productDescriptionCssFileExists).toBe(true);
     if(productDescriptionCssFileExists) {
       let parsed = CSSOM.parse(productDescriptionCssFile);
@@ -22,7 +22,7 @@ describe('ProductDescriptionComponent', () => {
     }
   }));
 
-  it(`should have CSS with a rule setting the width to 100% on the img selector @product-description-component-css2`, async(() => {
+  it(`should have CSS with a rule setting the width to 100% on the img selector @product-description-component-css2`, waitForAsync(() => {
     since('The ProductDescriptionComponent hasn\'t been created yet.').expect(productDescriptionCssFileExists).toBe(true);
     if(productDescriptionCssFileExists) {
       let parsed = CSSOM.parse(productDescriptionCssFile);

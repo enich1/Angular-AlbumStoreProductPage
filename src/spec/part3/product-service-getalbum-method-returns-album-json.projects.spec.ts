@@ -1,4 +1,4 @@
-import { TestBed, async, inject } from '@angular/core/testing';
+import { TestBed, inject, waitForAsync } from '@angular/core/testing';
 
 import { AppModule } from '../../app/app.module';
 
@@ -39,7 +39,7 @@ describe('ProductService', () => {
     ProvidedService = AProductService;
   }
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
   
     TestBed.configureTestingModule({
       imports: [AppModule, RouterTestingModule.withRoutes([])],
@@ -60,7 +60,7 @@ describe('ProductService', () => {
     mock_backend = mockBackend;
   }));
 
-  it(`should return contents of _albumUrl when getAlbum method called @product-service-getalbum-method-returns-album-json`, async(() => {
+  it(`should return contents of _albumUrl when getAlbum method called @product-service-getalbum-method-returns-album-json`, waitForAsync(() => {
     since('The ProductService hasn\'t been created yet.').expect(productServiceExists).toBe(true);
     mock_backend.connections.subscribe((connection: MockConnection) => {
       since('It looks like the `getAlbum` method is not requesting the contents of the `album.json` file.').expect(connection.request.url).toEqual('../assets/album.json');

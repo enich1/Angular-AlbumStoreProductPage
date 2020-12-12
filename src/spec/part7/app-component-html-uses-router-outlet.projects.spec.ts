@@ -1,4 +1,4 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AppModule } from '../../app/app.module';
 
@@ -14,14 +14,14 @@ const appRoutes: Routes = [
 ];
 
 describe('AppComponent', () => {
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
 
     TestBed.configureTestingModule({
       imports: [AppModule, RouterTestingModule.withRoutes([])]
     }).compileComponents();
   }));
 
-  it('should only contain a single tag named router-outlet @app-component-html-uses-router-outlet', async(() => {
+  it('should only contain a single tag named router-outlet @app-component-html-uses-router-outlet', waitForAsync(() => {
     const AppComponentFixture = TestBed.createComponent(AppComponent);
     since('There\'s currently no `router-outlet` tag in the AppComponent HTML file.').expect(AppComponentFixture.nativeElement.querySelector('router-outlet')).not.toBeNull();
   }));

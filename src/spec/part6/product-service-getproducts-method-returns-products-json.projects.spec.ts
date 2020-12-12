@@ -1,4 +1,4 @@
-import { TestBed, async, inject } from '@angular/core/testing';
+import { TestBed, inject, waitForAsync } from '@angular/core/testing';
 
 import { AppModule } from '../../app/app.module';
 
@@ -26,7 +26,7 @@ describe('ProductService', () => {
   let product_service;
   let mock_backend;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
   
     TestBed.configureTestingModule({
       imports: [AppModule, RouterTestingModule.withRoutes([])],
@@ -47,7 +47,7 @@ describe('ProductService', () => {
     mock_backend = mockBackend;
   }));
 
-  it(`should return contents of _productsUrl when getProducts() method called @product-service-getproducts-method-returns-products-json`, async(() => {
+  it(`should return contents of _productsUrl when getProducts() method called @product-service-getproducts-method-returns-products-json`, waitForAsync(() => {
     mock_backend.connections.subscribe((connection: MockConnection) => {
       since('It looks like the `getProducts` method is not requesting the contents of the `products.json` file.').expect(connection.request.url).toEqual('../assets/products.json');
       since('It looks like the `getProducts` method is not sending a `GET` request.').expect(connection.request.method).toEqual(0);

@@ -1,4 +1,4 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 
 const CSSOM = require('cssom');
 const _ = require('lodash');
@@ -14,7 +14,7 @@ try {
 
 describe('ProductTracklisting', () => {
 
-  it(`should have CSS that contains an li selector @product-tracklisting-component-css3`, async(() => {
+  it(`should have CSS that contains an li selector @product-tracklisting-component-css3`, waitForAsync(() => {
     since('The ProductTracklistingComponent hasn\'t been created yet.').expect(productTracklistingCssFileExists).toBe(true);
     if(productTracklistingCssFileExists) {
       let parsed = CSSOM.parse(productTracklistingCssFile);
@@ -22,7 +22,7 @@ describe('ProductTracklisting', () => {
     }
   }));
 
-  it(`should have CSS with a rule setting the display to block and the line-height to 30px on the li selector @product-tracklisting-component-css3`, async(() => {
+  it(`should have CSS with a rule setting the display to block and the line-height to 30px on the li selector @product-tracklisting-component-css3`, waitForAsync(() => {
     since('The ProductTracklistingComponent hasn\'t been created yet.').expect(productTracklistingCssFileExists).toBe(true);
     if(productTracklistingCssFileExists) {
       let parsed = CSSOM.parse(productTracklistingCssFile);

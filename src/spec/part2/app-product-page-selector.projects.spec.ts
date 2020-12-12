@@ -1,4 +1,4 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AppModule } from '../../app/app.module';
 
@@ -18,13 +18,13 @@ try {
 }
 
 describe('AppComponent', () => {
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [AppModule, RouterTestingModule.withRoutes([])],
     }).compileComponents();
   }));
 
-  it(`should contain the app-product-page element @app-product-page-selector`, async(() => {
+  it(`should contain the app-product-page element @app-product-page-selector`, waitForAsync(() => {
     since('The ProductPageComponent doesn\'t exist for some reason.').expect(productPageComponentExists).toBe(true);
 
     const fixture = TestBed.createComponent(AppComponent);

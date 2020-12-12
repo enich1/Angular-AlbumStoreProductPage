@@ -1,4 +1,4 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AppModule } from '../../app/app.module';
 
@@ -18,13 +18,13 @@ try {
 }
 
 describe('AppComponent', () => {
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [AppModule, RouterTestingModule.withRoutes([])],
     }).compileComponents();
   }));
 
-  it(`should contain the app-product-list element @app-product-list-selector`, async(() => {
+  it(`should contain the app-product-list element @app-product-list-selector`, waitForAsync(() => {
     since('The ProductListComponent doesn\'t exist - have you run the `ng` command to generate it yet?').expect(productListComponentExists).toBe(true);
 
     const fixture = TestBed.createComponent(AppComponent);

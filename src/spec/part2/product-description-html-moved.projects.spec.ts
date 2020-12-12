@@ -1,4 +1,4 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AppModule } from '../../app/app.module';
 
@@ -25,14 +25,14 @@ try {
 }
 
 describe('ProductDescription', () => {
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
 
     TestBed.configureTestingModule({
       imports: [AppModule, RouterTestingModule.withRoutes([])],
     }).compileComponents();
   }));
 
-  it('should have moved the description div out of the product-page component @product-description-html-moved', async(() => {
+  it('should have moved the description div out of the product-page component @product-description-html-moved', waitForAsync(() => {
     since('The ProductPageComponent doesn\'t exist for some reason.').expect(productPageComponentExists).toBe(true);
     since('The ProductDescriptionComponent doesn\'t exist - have you run the `ng` command to generate it yet?').expect(productDescriptionComponentExists).toBe(true);
 
@@ -41,7 +41,7 @@ describe('ProductDescription', () => {
     since('It looks like the ProductPageComponent still contains a `div` tag with a class of `description` - have you tried moving it yet?').expect(ProductPageFixture.nativeElement.querySelector('div.row > div.description')).toBeNull();
   }));
 
-  it(`should have moved the description div into the product-description component @product-description-html-moved`, async(() => {
+  it(`should have moved the description div into the product-description component @product-description-html-moved`, waitForAsync(() => {
     since('The ProductPageComponent doesn\'t exist for some reason.').expect(productPageComponentExists).toBe(true);
     since('The ProductDescriptionComponent doesn\'t exist - have you run the `ng` command to generate it yet?').expect(productDescriptionComponentExists).toBe(true);
 

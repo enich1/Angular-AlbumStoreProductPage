@@ -1,4 +1,4 @@
-import { TestBed, async, inject } from '@angular/core/testing';
+import { TestBed, inject, waitForAsync } from '@angular/core/testing';
 
 import { AppModule } from '../../app/app.module';
 
@@ -56,7 +56,7 @@ describe('ProductTracklisting', () => {
   let product_service;
   let mock_backend;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
 
     TestBed.configureTestingModule({
       imports: [AppModule, RouterTestingModule.withRoutes([])],
@@ -78,7 +78,7 @@ describe('ProductTracklisting', () => {
     mock_backend = mockBackend;
   }));
 
-  it(`should use ngFor to enumerate through each track in an li tag @product-tracklisting-html-uses-ngfor-to-enumerate-tracks`, async(() => {
+  it(`should use ngFor to enumerate through each track in an li tag @product-tracklisting-html-uses-ngfor-to-enumerate-tracks`, waitForAsync(() => {
     since('The ProductTracklistingComponent doesn\'t exist - have you run the `ng` command to generate it yet?').expect(productTracklistingComponentExists).toBe(true);
 
     mock_backend.connections.subscribe((connection: MockConnection) => {

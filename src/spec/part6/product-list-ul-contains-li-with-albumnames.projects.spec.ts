@@ -1,4 +1,4 @@
-import { TestBed, async, inject } from '@angular/core/testing';
+import { TestBed, inject, waitForAsync } from '@angular/core/testing';
 
 import { AppModule } from '../../app/app.module';
 
@@ -56,7 +56,7 @@ describe('ProductList', () => {
   let product_service;
   let mock_backend;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
 
     TestBed.configureTestingModule({
       imports: [AppModule, RouterTestingModule.withRoutes([])],
@@ -78,7 +78,7 @@ describe('ProductList', () => {
     mock_backend = mockBackend;
   }));
 
-  it(`should have an li element that contains the album name @product-list-ul-contains-li-with-albumnames`, async(() => {
+  it(`should have an li element that contains the album name @product-list-ul-contains-li-with-albumnames`, waitForAsync(() => {
     since('The ProductListComponent doesn\'t exist - have you run the `ng` command to generate it yet?').expect(productListComponentExists).toBe(true);
 
     mock_backend.connections.subscribe((connection: MockConnection) => {

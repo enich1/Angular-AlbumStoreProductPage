@@ -1,4 +1,4 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 
 let productListComponentExists = false;
 let ProductListComponent;
@@ -10,7 +10,7 @@ try {
 }
 
 describe('Project', () => {
-  it(`should create the product list component @product-list-component-created`, async(() => {
+  it(`should create the product list component @product-list-component-created`, waitForAsync(() => {
     since('The ProductListComponent doesn\'t exist - have you run the `ng` command to generate it yet?').expect(productListComponentExists).toBe(true);
   }));
 

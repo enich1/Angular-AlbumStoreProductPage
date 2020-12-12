@@ -4,7 +4,7 @@ import {
   platformBrowserDynamicTesting
 } from '@angular/platform-browser-dynamic/testing';
 
-import { TestBed, async, inject } from '@angular/core/testing';
+import { TestBed, inject, waitForAsync } from '@angular/core/testing';
 
 import { AppModule } from '../../app/app.module';
 
@@ -54,7 +54,7 @@ describe('ProductDescription', () => {
     ProvidedService = AProductService;
   }
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
 
     TestBed.configureTestingModule({
       imports: [AppModule, RouterTestingModule.withRoutes([])],
@@ -76,7 +76,7 @@ describe('ProductDescription', () => {
     mock_backend = mockBackend;
   }));
 
-  it(`should use artist name data from the albumInfo property in the HTML template @product-description-html-uses-dynamic-albuminfo-band`, async(() => {
+  it(`should use artist name data from the albumInfo property in the HTML template @product-description-html-uses-dynamic-albuminfo-band`, waitForAsync(() => {
     since('The ProductService hasn\'t been created yet.').expect(productServiceExists).toBe(true);
     expect(productDescriptionComponentExists).toBe(true);
     

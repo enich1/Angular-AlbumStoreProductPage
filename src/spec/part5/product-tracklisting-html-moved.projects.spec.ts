@@ -1,4 +1,4 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AppModule } from '../../app/app.module';
 
@@ -25,14 +25,14 @@ try {
 }
 
 describe('ProductPage', () => {
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
 
     TestBed.configureTestingModule({
       imports: [AppModule, RouterTestingModule.withRoutes([])],
     }).compileComponents();
   }));
 
-  it('should have moved the tracklisting div out of the product-page component @product-tracklisting-html-moved', async(() => {
+  it('should have moved the tracklisting div out of the product-page component @product-tracklisting-html-moved', waitForAsync(() => {
     since('The ProductTracklistingComponent doesn\'t exist - have you run the `ng` command to generate it yet?').expect(productTracklistingComponentExists).toBe(true);
     since('The ProductPageComponent doesn\'t exist for some reason.').expect(productPageComponentExists).toBe(true);
 
@@ -45,7 +45,7 @@ describe('ProductPage', () => {
     }
   }));
 
-  it(`should contain the app-product-tracklisting element @product-tracklisting-html-moved`, async(() => {
+  it(`should contain the app-product-tracklisting element @product-tracklisting-html-moved`, waitForAsync(() => {
     since('The ProductPageComponent doesn\'t exist for some reason.').expect(productPageComponentExists).toBe(true);
 
     const ProductPageFixture = TestBed.createComponent(ProductPageComponent);
@@ -58,14 +58,14 @@ describe('ProductPage', () => {
 });
 
 describe('ProductTracklisting', () => {
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
 
     TestBed.configureTestingModule({
       imports: [AppModule, RouterTestingModule.withRoutes([])],
     }).compileComponents();
   }));
 
-  it(`should have moved the tracklisting div into the product-tracklisting component @product-tracklisting-html-moved`, async(() => {
+  it(`should have moved the tracklisting div into the product-tracklisting component @product-tracklisting-html-moved`, waitForAsync(() => {
     since('The ProductTracklistingComponent doesn\'t exist - have you run the `ng` command to generate it yet?').expect(productTracklistingComponentExists).toBe(true);
     since('The ProductPageComponent doesn\'t exist for some reason.').expect(productPageComponentExists).toBe(true);
 

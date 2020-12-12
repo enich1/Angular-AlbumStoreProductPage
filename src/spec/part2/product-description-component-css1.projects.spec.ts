@@ -1,4 +1,4 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 
 const CSSOM = require('cssom');
 const _ = require('lodash');
@@ -14,7 +14,7 @@ try {
 
 describe('ProductDescriptionComponent', () => {
 
-  it(`should have CSS that contains a paragraph selector @product-description-component-css1`, async(() => {
+  it(`should have CSS that contains a paragraph selector @product-description-component-css1`, waitForAsync(() => {
     since('The ProductDescriptionComponent hasn\'t been created yet.').expect(productDescriptionCssFileExists).toBe(true);
     if(productDescriptionCssFileExists) {
       let parsed = CSSOM.parse(productDescriptionCssFile);
@@ -22,7 +22,7 @@ describe('ProductDescriptionComponent', () => {
     }
   }));
 
-  it(`should have CSS with a rule setting the font-size to 16px on the paragraph selector @product-description-component-css1`, async(() => {
+  it(`should have CSS with a rule setting the font-size to 16px on the paragraph selector @product-description-component-css1`, waitForAsync(() => {
     since('The ProductDescriptionComponent hasn\'t been created yet.').expect(productDescriptionCssFileExists).toBe(true);
     if(productDescriptionCssFileExists) {
       let parsed = CSSOM.parse(productDescriptionCssFile);
@@ -35,7 +35,7 @@ describe('ProductDescriptionComponent', () => {
     }
   }));
 
-  it(`should have CSS with a rule setting the font-family to Helvetica, Arial, sans-serif on the paragraph selector @product-description-component-css1`, async(() => {
+  it(`should have CSS with a rule setting the font-family to Helvetica, Arial, sans-serif on the paragraph selector @product-description-component-css1`, waitForAsync(() => {
     since('The ProductDescriptionComponent hasn\'t been created yet.').expect(productDescriptionCssFileExists).toBe(true);
     if(productDescriptionCssFileExists) {
       let parsed = CSSOM.parse(productDescriptionCssFile);
@@ -65,7 +65,7 @@ describe('ProductDescriptionComponent', () => {
     }
   }));
 
-  it(`should have CSS with a rule setting the font-weight to normal on the paragraph selector @product-description-component-css1`, async(() => {
+  it(`should have CSS with a rule setting the font-weight to normal on the paragraph selector @product-description-component-css1`, waitForAsync(() => {
     since('The ProductDescriptionComponent hasn\'t been created yet.').expect(productDescriptionCssFileExists).toBe(true);
     if(productDescriptionCssFileExists) {
       let parsed = CSSOM.parse(productDescriptionCssFile);

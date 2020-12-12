@@ -1,4 +1,4 @@
-import { TestBed, async, inject } from '@angular/core/testing';
+import { TestBed, inject, waitForAsync } from '@angular/core/testing';
 
 import { AppModule } from '../../app/app.module';
 
@@ -37,7 +37,7 @@ describe('ProductTracklisting', () => {
   let product_service;
   let mock_backend;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
 
     TestBed.configureTestingModule({
       imports: [AppModule, RouterTestingModule.withRoutes([])],
@@ -59,7 +59,7 @@ describe('ProductTracklisting', () => {
     mock_backend = mockBackend;
   }));
 
-  it(`should use track number data from the albumInfo.tracks property in the HTML template @product-tracklisting-html-uses-track-object-data`, async(() => {
+  it(`should use track number data from the albumInfo.tracks property in the HTML template @product-tracklisting-html-uses-track-object-data`, waitForAsync(() => {
     since('The ProductTracklistingComponent doesn\'t exist - have you run the `ng` command to generate it yet?').expect(productTracklistingExists).toBe(true);
 
     mock_backend.connections.subscribe((connection: MockConnection) => {
@@ -81,7 +81,7 @@ describe('ProductTracklisting', () => {
     }
   }));
 
-  it(`should use track name data from the albumInfo.tracks property in the HTML template @product-tracklisting-html-uses-track-object-data`, async(() => {
+  it(`should use track name data from the albumInfo.tracks property in the HTML template @product-tracklisting-html-uses-track-object-data`, waitForAsync(() => {
     since('The ProductTracklistingComponent doesn\'t exist - have you run the `ng` command to generate it yet?').expect(productTracklistingExists).toBe(true);
 
     mock_backend.connections.subscribe((connection: MockConnection) => {
@@ -103,7 +103,7 @@ describe('ProductTracklisting', () => {
     }
 }));
 
-  it(`should use track time data from the albumInfo.tracks property in the HTML template @product-tracklisting-html-uses-track-object-data`, async(() => {
+  it(`should use track time data from the albumInfo.tracks property in the HTML template @product-tracklisting-html-uses-track-object-data`, waitForAsync(() => {
     since('The ProductTracklistingComponent doesn\'t exist - have you run the `ng` command to generate it yet?').expect(productTracklistingExists).toBe(true);
 
     mock_backend.connections.subscribe((connection: MockConnection) => {
@@ -125,7 +125,7 @@ describe('ProductTracklisting', () => {
     }
   }));
 
-  it(`should use track price data from the albumInfo.tracks property in the HTML template @product-tracklisting-html-uses-track-object-data`, async(() => {
+  it(`should use track price data from the albumInfo.tracks property in the HTML template @product-tracklisting-html-uses-track-object-data`, waitForAsync(() => {
     since('The ProductTracklistingComponent doesn\'t exist - have you run the `ng` command to generate it yet?').expect(productTracklistingExists).toBe(true);
 
     mock_backend.connections.subscribe((connection: MockConnection) => {

@@ -1,4 +1,4 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AppModule } from '../../app/app.module';
 
@@ -29,13 +29,13 @@ try {
 }
 
 describe('ProductPageComponent', () => {
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [AppModule, RouterTestingModule.withRoutes([])],
     }).compileComponents();
   }));
 
-  it(`should contain the app-product-description element @app-product-description-selector`, async(() => {
+  it(`should contain the app-product-description element @app-product-description-selector`, waitForAsync(() => {
     since('The ProductPageComponent doesn\'t exist for some reason.').expect(productPageComponentExists).toBe(true);
     since('The ProductDescriptionComponent doesn\'t exist - have you run the `ng` command to generate it yet?').expect(productDescriptionComponentExists).toBe(true);
 
@@ -45,7 +45,7 @@ describe('ProductPageComponent', () => {
     since('You haven\'t added the `app-product-description` selector yet.').expect(ProductPageFixture.nativeElement.querySelector('app-product-description')).not.toBe(null);
   }));
 
-  it(`should contain the app-product-description element as a child of the first element with a class of row @app-product-description-selector`, async(() => {
+  it(`should contain the app-product-description element as a child of the first element with a class of row @app-product-description-selector`, waitForAsync(() => {
     since('The ProductPageComponent doesn\'t exist for some reason.').expect(productPageComponentExists).toBe(true);
     since('The ProductDescriptionComponent doesn\'t exist - have you run the `ng` command to generate it yet?').expect(productDescriptionComponentExists).toBe(true);
 

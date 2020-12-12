@@ -1,4 +1,4 @@
-import { TestBed, async, inject } from '@angular/core/testing';
+import { TestBed, inject, waitForAsync } from '@angular/core/testing';
 
 import { AppModule } from '../../app/app.module';
 
@@ -28,7 +28,7 @@ describe('ProductService', () => {
   let product_service;
   let mock_backend;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
 
     TestBed.configureTestingModule({
       imports: [AppModule, RouterTestingModule.withRoutes([])],
@@ -50,7 +50,7 @@ describe('ProductService', () => {
     mock_backend = mockBackend;
   }));
 
-  it(`should map the result of get request to json with rxjs map function @product-service-getproducts-method-maps-response-to-json`, async(() => {
+  it(`should map the result of get request to json with rxjs map function @product-service-getproducts-method-maps-response-to-json`, waitForAsync(() => {
     mock_backend.connections.subscribe((connection: MockConnection) => {
       let options = new ResponseOptions({
         body: json
